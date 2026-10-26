@@ -1,0 +1,1 @@
+<?php require '../../main.inc.php'; header("Location: list.php"); exit;

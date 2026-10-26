@@ -1,0 +1,9 @@
+<?php
+class IndicateursTerrain{
+    public $db;
+    public function __construct($db){ $this->db=$db; }
+    public function getNbVisitesAujourdhui($fkUser){
+        $sql="SELECT COUNT(*) as nb FROM ".MAIN_DB_PREFIX."terrain_visite WHERE DATE(date_visite)=CURDATE() AND fk_user_visiteur=".(int)$fkUser;
+        $res=$this->db->query($sql); $obj=$this->db->fetch_object($res); return $obj->nb;
+    }
+}
